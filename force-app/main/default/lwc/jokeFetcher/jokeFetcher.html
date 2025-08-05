@@ -1,0 +1,7 @@
+<template>
+    <lightning-button label="Get Joke" onclick={fetchJoke}></lightning-button>
+    <template if:true={joke}>
+        <p><b>Setup:</b> {joke.setup}</p>
+        <p><b>Punchline:</b> {joke.punchline}</p>
+    </template>
+</template>

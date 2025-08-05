@@ -1,0 +1,6 @@
+<template>
+    <lightning-input type="number" label="Number 1" onchange={handleA}></lightning-input>
+    <lightning-input type="number" label="Number 2" onchange={handleB}></lightning-input>
+    <lightning-button label="Add via Apex" onclick={calculate}></lightning-button>
+    <p if:true={result}>Result from Apex: {result}</p>
+</template>
