@@ -18,7 +18,7 @@ export default class CreateContactForm extends LightningElement {
     }
 
     createContactHandler() {
-        this.message = '';
+        this.message = ''; 
         this.error = '';
 
         createContact({
