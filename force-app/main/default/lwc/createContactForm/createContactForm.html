@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Create New Contact">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Account Name" value={accountName} onchange={handleChange}></lightning-input>
+            <lightning-input label="First Name" value={firstName} onchange={handleChange}></lightning-input>
+            <lightning-input label="Last Name" value={lastName} onchange={handleChange}></lightning-input>
+            <lightning-input label="Email" type="email" value={email} onchange={handleChange}></lightning-input>
+
+            <lightning-button label="Create Contact" onclick={createContactHandler} class="slds-m-top_medium"></lightning-button>
+
+            <template if:true={message}>
+                <p class="slds-text-color_success slds-m-top_medium">{message}</p>
+            </template>
+            <template if:true={error}>
+                <p class="slds-text-color_error slds-m-top_medium">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
