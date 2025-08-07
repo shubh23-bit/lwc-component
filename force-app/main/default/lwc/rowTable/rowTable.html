@@ -22,7 +22,9 @@
                             <button class="open-btn" 
                                 data-id={acc.Id}
                                 onclick={handleOpen}>Open</button>
-                            <button class="edit-btn" onclick={handleEdit}>Edit</button>
+                            <!-- <button class="edit-btn" onclick={handleEdit} title="Edit">
+                                <svg viewBox="0 0 20 20" width="18" height="18" style="vertical-align:middle;"><path d="M14.85 2.15a1.5 1.5 0 0 1 2.12 2.12l-1.29 1.29-2.12-2.12 1.29-1.29zm-2 2l2.12 2.12-8.47 8.47c-.2.2-.45.34-.72.4l-2.83.71a.5.5 0 0 1-.61-.61l.71-2.83c.06-.27.2-.52.4-.72l8.47-8.47z" fill="#f57c00"/></svg>
+                            </button> -->
                         </div>
                     </td>
                 </tr>
@@ -49,16 +51,17 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{selectedAccount.Name}</td>
-                            <td>{selectedAccount.Industry}</td>
-                            <td>{selectedAccount.Phone}</td>
-                            <td>{selectedAccount.Type}</td>
+                            <td><input type="text" value={selectedAccount.Name} onchange={handleFieldChange} data-field="Name"/></td>
+                            <td><input type="text" value={selectedAccount.Industry} onchange={handleFieldChange} data-field="Industry"/></td>
+                            <td><input type="text" value={selectedAccount.Phone} onchange={handleFieldChange} data-field="Phone"/></td>
+                            <td><input type="text" value={selectedAccount.Type} onchange={handleFieldChange} data-field="Type"/></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <footer>
                 <button class="close-btn" onclick={handleCloseModal}>Close</button>
+                <button class="save-btn" onclick={handleSaveModal}>Save</button>
             </footer>
         </section>
     </template>

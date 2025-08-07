@@ -76,3 +76,16 @@
     border-radius: 4px;
     cursor: pointer;
 }
+.save-btn {
+    margin-top: 18px;
+    background: #0a6;
+    color: white;
+    border: none;
+    padding: 6px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.edit-btn svg {
+    pointer-events: none;
+}
