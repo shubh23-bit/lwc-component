@@ -1,31 +1,31 @@
 import { LightningElement, wire, track } from 'lwc';
 import getAccountList from '@salesforce/apex/AccountController.getAccountList';
 
-
-
 export default class rowTable extends LightningElement {
     @track showModal = false;
+    @track selectedAccount = null;
     @track accountList = [];
-
-    @track data = [
-        { id: 1 }, { id: 2 }, { id: 3 },{ id: 4 },{ id: 5 }
-    ];
 
     @wire(getAccountList)
     wiredAccounts({ data, error }) {
         if (data) {
             this.accountList = data;
-        } else if (error) {
+        } else {
             this.accountList = [];
         }
     }
 
-    handleOpen() {
+    handleOpen(event) {
+        const recordId = event.target.dataset.id;
+        this.selectedAccount = this.accountList.find(acc => acc.Id === recordId);
         this.showModal = true;
     }
+
     handleCloseModal() {
         this.showModal = false;
+        this.selectedAccount = null;
     }
+
     handleEdit() {
         alert('Edit clicked!');
     }

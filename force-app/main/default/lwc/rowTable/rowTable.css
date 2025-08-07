@@ -5,7 +5,7 @@
     background: #fff;
 }
 .custom-table, .custom-table th, .custom-table td {
-    border: 1px solid #bbb;
+    border: 1px solid black;
 }
 .custom-table th, .custom-table td {
     text-align: center;
@@ -16,7 +16,7 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    border: 1px solid #bbb;
+    /* border: 1px solid #bbb; */
     padding: 10px 0;
     background: #f9f9f9;
     border-radius: 6px;
@@ -61,10 +61,10 @@
     margin: 0 auto;
     width: 95%;
 }
-/* 👇👇👇 NEW: Only modal table is scrollable 👇👇👇 */
+
 .modal-table-wrapper {
-    max-height: 350px;      /* modal content ki max height (adjust kar sakte ho) */
-    overflow-y: auto;       /* scroll ayega jab rows jyada hongi */
+    max-height: 350px;      
+    overflow-y: auto;       
     margin-bottom: 10px;
 }
 .close-btn {
