@@ -1,0 +1,74 @@
+<template>
+    <!-- Outer table with border and buttons -->
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={data} for:item="row">
+                <tr key={row.id}>
+                    <td>
+                        <div class="button-group">
+                            <button class="open-btn" onclick={handleOpen}>Open</button>
+                            <button class="edit-btn" onclick={handleEdit}>Edit</button>
+                        </div>
+                    </td>
+                    <td>
+                        <!-- <div class="button-group">
+                            <button class="open-btn" onclick={handleOpen}>Open</button>
+                            <button class="edit-btn" onclick={handleEdit}>Edit</button>
+                        </div> -->
+                    </td>
+                    <td>
+                        <!-- <div class="button-group">
+                            <button class="open-btn" onclick={handleOpen}>Open</button>
+                            <button class="edit-btn" onclick={handleEdit}>Edit</button>
+                        </div> -->
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+
+    <!-- Modal For Account Data -->
+    <template if:true={showModal}>
+    <div class="modal-backdrop"></div>
+    <section class="modal">
+        <header>
+            <h2>Account Data</h2>
+        </header>
+        <!-- 📌 WRAPPER DIV FOR SCROLLING STARTS HERE: -->
+        <div class="modal-table-wrapper">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Industry</th>
+                        <th>Phone</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={accountList} for:item="acc">
+                        <tr key={acc.Id}>
+                            <td>{acc.Name}</td>
+                            <td>{acc.Industry}</td>
+                            <td>{acc.Phone}</td>
+                            <td>{acc.Type}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <!-- 📌 WRAPPER DIV ENDS -->
+        <footer>
+            <button class="close-btn" onclick={handleCloseModal}>Close</button>
+        </footer>
+    </section>
+</template>
+
+</template>
