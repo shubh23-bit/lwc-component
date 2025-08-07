@@ -6,6 +6,7 @@ export default class CreateContactForm extends LightningElement {
     @track firstName = '';
     @track lastName = '';
     @track email = '';
+    @track title= '';
     @track message;
     @track error;
 
@@ -15,6 +16,7 @@ export default class CreateContactForm extends LightningElement {
         if (field === 'First Name') this.firstName = event.target.value;
         if (field === 'Last Name') this.lastName = event.target.value;
         if (field === 'Email') this.email = event.target.value;
+        if (field==='title') this.title = event.target.value;
     }
 
     createContactHandler() {
@@ -25,7 +27,8 @@ export default class CreateContactForm extends LightningElement {
             accountName: this.accountName,
             firstName: this.firstName,
             lastName: this.lastName,
-            email: this.email
+            email: this.email,
+            title: this.title
         })
         .then(result => {
             this.message = result;
