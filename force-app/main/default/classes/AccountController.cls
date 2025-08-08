@@ -23,4 +23,10 @@ public with sharing class AccountController {
     public static List<Account> getAccountList() {
         return [SELECT Id, Name, Industry, Phone, Type FROM Account LIMIT 10];
     }
+
+    @AuraEnabled
+    public static Account updateAccount(Account acc) {
+        update acc;
+        return [SELECT Id, Name, Industry, Phone, Type FROM Account WHERE Id = :acc.Id LIMIT 1];
+    }
 }
