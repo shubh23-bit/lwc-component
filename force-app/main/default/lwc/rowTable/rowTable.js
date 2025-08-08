@@ -59,4 +59,22 @@ export default class rowTable extends LightningElement {
             alert('Error saving account: ' + (error.body && error.body.message ? error.body.message : error.message));
         }
     }
+
+    handleFieldChange(event) {
+        const field = event.target.dataset.field;
+        const value = event.target.value;
+        this.selectedAccount = { ...this.selectedAccount, [field]: value };
+    }
+
+    async handleSaveModal() {
+        try {
+            const updated = await updateAccount({ acc: this.selectedAccount });
+            // Update accountList with new data
+            this.accountList = this.accountList.map(acc => acc.Id === updated.Id ? updated : acc);
+            this.showModal = false;
+            this.selectedAccount = null;
+        } catch (error) {
+            alert('Error saving account: ' + (error.body && error.body.message ? error.body.message : error.message));
+        }
+    }
 }

@@ -76,6 +76,7 @@
     border-radius: 4px;
     cursor: pointer;
 }
+<<<<<<< HEAD
 
 /* Edit Grid Layout */
 .edit-grid {
@@ -113,6 +114,8 @@
     box-shadow: 0 0 5px rgba(10, 102, 0, 0.3);
 }
 
+=======
+>>>>>>> 6330d3a8ff5547ed416b1e136e7b0588c23b5883
 .save-btn {
     margin-top: 18px;
     background: #0a6;
@@ -123,6 +126,7 @@
     cursor: pointer;
     margin-left: 10px;
 }
+<<<<<<< HEAD
 
 .edit-btn-modal {
     margin-top: 18px;
@@ -138,6 +142,8 @@
     gap: 5px;
 }
 
+=======
+>>>>>>> 6330d3a8ff5547ed416b1e136e7b0588c23b5883
 .edit-btn svg {
     pointer-events: none;
 }
