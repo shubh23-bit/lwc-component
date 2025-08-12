@@ -6,9 +6,9 @@
                     <div key={contact.Id} class="birthday-card">
                         <div class="circle">{contact.initials}</div>
                         <h3>{contact.FirstName} {contact.LastName}</h3>
-                        <p class="small">Account: {contact.Account.Name}</p>
-                        <p class="small">Email: {contact.Email}</p>
-                        <p class="small">Phone: {contact.Phone}</p>
+                        <p class="small">{contact.Account.Name}</p>
+                        <p class="small">{contact.Email}</p>
+                        <p class="small">{contact.Phone}</p>
                         <p class="countdown">⏳ {contact.daysLeft} days left</p>
                     </div>
                 </template>

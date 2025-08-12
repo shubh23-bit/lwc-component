@@ -24,7 +24,7 @@ export default class BirthdayReminder extends LightningElement {
         if (!birthdate) return null;
         const today = new Date();
         const thisYearBirthday = new Date(today.getFullYear(), new Date(birthdate).getMonth(), new Date(birthdate).getDate());
-        
+       // const thisYearBirthdays=new Date(today.getFullYear(),new Date(birthdate).getMonth(),new Date(birthdate).getDate())
         let diffTime = thisYearBirthday - today;
         if (diffTime < 0) {
             const nextYearBirthday = new Date(today.getFullYear() + 1, new Date(birthdate).getMonth(), new Date(birthdate).getDate());
