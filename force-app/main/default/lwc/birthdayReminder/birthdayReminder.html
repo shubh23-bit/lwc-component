@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="🎂 Upcoming Birthdays" icon-name="custom:custom14">
+        <template if:true={contacts}>
+            <div class="card-grid">
+                <template for:each={contacts} for:item="contact">
+                    <div key={contact.Id} class="birthday-card">
+                        <div class="circle">{contact.initials}</div>
+                        <h3>{contact.FirstName} {contact.LastName}</h3>
+                        <p class="small">Account: {contact.Account.Name}</p>
+                        <p class="small">Email: {contact.Email}</p>
+                        <p class="small">Phone: {contact.Phone}</p>
+                        <p class="countdown">⏳ {contact.daysLeft} days left</p>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <template if:true={error}>
+            <p class="error">{error}</p>
+        </template>
+    </lightning-card>
+</template>

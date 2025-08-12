@@ -131,7 +131,7 @@ export default class RowTable extends LightningElement {
 
     async handleSaveModal() {
         try {
-            await updateAccount({ acc: this.selectedAccount });
+            await updateAccount({ acc: this.selectedAccount });//check selected account data
             await refreshApex(this.wiredAccountsResult); // Refresh list from server
             this.showModal = false;
             this.selectedAccount = null;
