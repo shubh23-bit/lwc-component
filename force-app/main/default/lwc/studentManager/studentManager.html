@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Student Manager" icon-name="standard:education">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Name" value={name} onchange={handleChange}></lightning-input>
+            <lightning-input label="Age" type="number" value={age} onchange={handleChange}></lightning-input>
+            <lightning-input label="Email" type="email" value={email} onchange={handleChange}></lightning-input>
+            <lightning-input label="Course" value={course} onchange={handleChange}></lightning-input>
+            <lightning-button label="Add Student" onclick={createStudent}></lightning-button>
+        </div>
+
+        <div class="slds-m-around_medium">
+            <template if:true={students}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={students}
+                    columns={columns}>
+                </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>

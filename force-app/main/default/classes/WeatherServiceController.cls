@@ -6,7 +6,7 @@ public with sharing class WeatherServiceController {
         }
 
         // API URL with your API key (replace with your real API key)
-        String apiKey = 'adb7f84db9c331b8e423ec1562974b5f';
+        String apiKey = 'e81b12e870bdcd2f5148d28af120781a';
         String endpoint = 'https://api.openweathermap.org/data/2.5/weather?q=' 
                           + EncodingUtil.urlEncode(cityName, 'UTF-8') 
                           + '&appid=' + apiKey 

@@ -7,7 +7,7 @@ export default class WeatherWidget extends LightningElement {
     @track error;
 
     handleCityChange(event) {
-        this.cityName = event.target.value;
+        this.cityName = event.target.value; 
     }
 
     fetchWeather() {

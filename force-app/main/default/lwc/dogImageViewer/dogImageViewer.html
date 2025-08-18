@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Random Dog Image" icon-name="custom:custom63">
+        <div class="slds-var-m-around_medium">
+            <lightning-button label="Show Random Dog" onclick={fetchDog}></lightning-button>
+        </div>
+
+        <template if:true={dogImage}>
+            <div class="slds-var-m-around_medium">
+                <img src={dogImage} alt="Dog Image" style="max-width: 300px; border-radius: 10px;" />
+            </div>
+        </template>
+    </lightning-card>
+</template>
