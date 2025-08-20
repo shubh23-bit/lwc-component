@@ -21,11 +21,14 @@
     border-radius: 7px;
     border: 2px solid #5b5e5f;
     font-size: 1.08rem;
-    padding-left: 36px;
-    padding-right: 36px;
+    padding-left: 36px; /* space for left search icon when no selection */
+    padding-right: 36px; /* space for right dropdown arrow */
     box-sizing: border-box;
     transition: border 0.18s, box-shadow 0.20s;
     background: #fff;
+}
+.search-input.compact-left {
+    padding-left: 5px; /* flush to the left when selected */
 }
 .search-input:focus {
     border-color: #d89e9a !important;

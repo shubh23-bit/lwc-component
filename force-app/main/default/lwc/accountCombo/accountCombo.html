@@ -14,7 +14,7 @@
             <!-- Input box -->
             <input
                 type="text"
-                class="search-input"
+                class={inputClass}
                 placeholder="Select branch"
                 value={searchKey}
                 onclick={handleInputBoxClick}
@@ -23,7 +23,6 @@
                 onfocus={handleFocus}
                 aria-haspopup="listbox"
                 autocomplete="off"
-                style="padding-left:36px; padding-right:36px;"
             />
             <!-- Right Dropdown Arrow Icon -->
             <span class="icon-right" onclick={handleDropdownClick}>

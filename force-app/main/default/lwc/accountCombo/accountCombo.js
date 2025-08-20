@@ -37,6 +37,16 @@ export default class AccountSearchCombobox extends LightningElement {
         });
     }
 
+    // Empty state for results list
+    get isResultsEmpty() {
+        return !this.accounts || this.accounts.length === 0;
+    }
+
+    // Input class: remove left padding when a value is selected (no search icon)
+    get inputClass() {
+        return this.selectedAccount ? 'search-input compact-left' : 'search-input';
+    }
+
     // When input changes (typing)
     handleInputChange(event) {
         this.searchKey = event.target.value;
