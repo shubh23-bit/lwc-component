@@ -1,0 +1,65 @@
+<template>
+    <div class="custom-combobox">
+        <label class="field-label">Agent Branch Name *</label>
+        <div class="input-wrapper">
+            <!-- Search Icon (Hide when selectedAccount exists) -->
+            <template if:false={selectedAccount}>
+                <span class="icon-left">
+                    <svg width="18" height="18" viewBox="0 0 18 18">
+                        <circle cx="8" cy="8" r="7" stroke="#aaa" stroke-width="2" fill="none"/>
+                        <line x1="13" y1="13" x2="17" y2="17" stroke="#aaa" stroke-width="2"/>
+                    </svg>
+                </span>
+            </template>
+            <!-- Input box -->
+            <input
+                type="text"
+                class="search-input"
+                placeholder="Select branch"
+                value={searchKey}
+                onclick={handleInputBoxClick}
+                oninput={handleInputChange}
+                onblur={handleBlur}
+                onfocus={handleFocus}
+                aria-haspopup="listbox"
+                autocomplete="off"
+                style="padding-left:36px; padding-right:36px;"
+            />
+            <!-- Right Dropdown Arrow Icon -->
+            <span class="icon-right" onclick={handleDropdownClick}>
+                <svg width="18" height="18" viewBox="0 0 18 18">
+                    <polygon points="5,7 9,12 13,7" fill="#aaa"/>
+                </svg>
+            </span>
+        </div>
+        <div class="helper-text">Select your nearest branch location</div>
+        <!-- Dropdown List starts just below input-wrapper -->
+        <template if:true={isDropdownOpen}>
+            <ul class="result-list" role="listbox">
+                <template for:each={computedResults} for:item="account">
+                    <li 
+                        key={account.Id}
+                        class={account.itemClass}
+                        onclick={handleSelect}
+                        data-id={account.Id}
+                        data-name={account.Name}
+                        onmouseover={handleHover}
+                        onmouseout={handleMouseOut}
+                    >
+                        <template if:true={account.isSelected}>
+                            <span class="check-icon">
+                                <svg width="17" height="17" viewBox="0 0 18 18">
+                                    <polyline points="4 10 8 14 14 6" fill="none" stroke="#f44336" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </template>
+                        {account.Name}
+                    </li>
+                </template>
+                <template if:true={isResultsEmpty}>
+                    <li class="result-item no-results">No results found</li>
+                </template>
+            </ul>
+        </template>
+    </div>
+</template>

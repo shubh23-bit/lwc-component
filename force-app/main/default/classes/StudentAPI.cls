@@ -13,8 +13,8 @@ global with sharing class StudentAPI {
         StudentAPI__c s = new StudentAPI__c(
             Name = name,
             Age__c = age,
-            Email__c = email,
-            Course__c = course
+            Email__c = email,  
+            Course__c = course 
         );
         insert s;
         return 'Student created with Id: ' + s.Id;
@@ -31,7 +31,7 @@ global with sharing class StudentAPI {
 
     // DELETE - Delete student
     @HttpDelete
-global static String deleteStudent() {
+    global static String deleteStudent() {
     RestRequest req = RestContext.request;
     RestResponse res = RestContext.response;
 

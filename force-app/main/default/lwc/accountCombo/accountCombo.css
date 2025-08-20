@@ -1,0 +1,112 @@
+.custom-combobox {
+    position: relative;
+    width: 380px;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+}
+.field-label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    color: #4b4b4b;
+}
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.search-input {
+    width: 100%;
+    height: 46px;
+    border-radius: 7px;
+    border: 2px solid #5b5e5f;
+    font-size: 1.08rem;
+    padding-left: 36px;
+    padding-right: 36px;
+    box-sizing: border-box;
+    transition: border 0.18s, box-shadow 0.20s;
+    background: #fff;
+}
+.search-input:focus {
+    border-color: #d89e9a !important;
+    box-shadow: 0 0 0 2px #ffeaea !important;
+    outline: none !important;
+}
+.icon-left, .icon-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.icon-left {
+    left: 10px;
+    pointer-events: none;
+}
+.icon-right {
+    right: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+.helper-text {
+    font-size: 0.97rem;
+    color: #959595;
+    margin-top: 4px;
+    margin-bottom: 5px;
+}
+.result-list {
+    margin-top: 2px;
+    border-radius: 7px;
+    background: #fff;
+    border: 1.5px solid #e0e0e0;
+    box-shadow: 0 6px 22px rgba(60,60,60,0.09);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 75px; /* input-wrapper height + margin-top */
+    z-index: 99;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 0;
+    list-style: none;
+}
+.result-item {
+    padding: 13px 18px 13px 38px;
+    cursor: pointer;
+    font-size: 1.04rem;
+    color: #333;
+    background: transparent;
+    transition: background 0.12s, color 0.13s;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.result-item:hover, .result-item.hover-red {
+    background: #fff1f0;
+    color: #eaa39e;
+}
+.result-item.selected {
+    background: #fff1f0;
+    color: #f39892;
+    font-weight: 400;
+}
+.check-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: -22px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+.no-results {
+    color: #b6b6b6;
+    cursor: not-allowed;
+    padding: 13px 18px;
+}
+@media (max-width: 440px) {
+    .custom-combobox {
+        width: 98vw;
+    }
+    .result-list {
+        font-size: 0.99rem;
+    }
+}

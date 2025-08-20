@@ -18,6 +18,7 @@ public with sharing class WeatherServiceController {
         req.setMethod('GET');
         req.setTimeout(60000);
 
+     
         try {
             HttpResponse res = http.send(req);
             if (res.getStatusCode() == 200) {
@@ -29,6 +30,9 @@ public with sharing class WeatherServiceController {
                 errMap.put('error', 'API returned status: ' + res.getStatusCode());
                 errMap.put('body', res.getBody());
                 return JSON.serialize(errMap);
+
+               
+
             }
         } catch (Exception e) {
             Map<String, Object> errMap = new Map<String, Object>();
