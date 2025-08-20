@@ -21,7 +21,11 @@
                 oninput={handleInputChange}
                 onblur={handleBlur}
                 onfocus={handleFocus}
+                onkeydown={handleKeydown}
                 aria-haspopup="listbox"
+                aria-expanded={isDropdownOpen}
+                aria-controls={listboxId}
+                aria-activedescendant={activeOptionId}
                 autocomplete="off"
             />
             <!-- Right Dropdown Arrow Icon -->
@@ -34,7 +38,7 @@
         <div class="helper-text">Select your nearest branch location</div>
         <!-- Dropdown List starts just below input-wrapper -->
         <template if:true={isDropdownOpen}>
-            <ul class="result-list" role="listbox">
+            <ul class="result-list" role="listbox" id={listboxId}>
                 <template for:each={computedResults} for:item="account">
                     <li 
                         key={account.Id}
@@ -42,6 +46,9 @@
                         onclick={handleSelect}
                         data-id={account.Id}
                         data-name={account.Name}
+                        id={account.optionId}
+                        role="option"
+                        aria-selected={account.isSelected}
                         onmouseover={handleHover}
                         onmouseout={handleMouseOut}
                     >

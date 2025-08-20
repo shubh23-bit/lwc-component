@@ -91,6 +91,9 @@
     color: #f39892;
     font-weight: 400;
 }
+.result-item.active {
+    outline: 2px solid #ffd6d3;
+}
 .check-icon {
     display: inline-block;
     vertical-align: middle;
