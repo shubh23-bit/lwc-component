@@ -11,7 +11,7 @@ export default class AccountSearchCombobox extends LightningElement {
     @track effectiveSearchKey = '';
     @track activeIndex = -1;
 
-    debounceTimeout;
+    debounceTimeout; 
 
     // Wire Apex method for live search (debounced via effectiveSearchKey)
     @wire(searchAccounts, { searchKey: '$effectiveSearchKey' })
@@ -34,15 +34,17 @@ export default class AccountSearchCombobox extends LightningElement {
         return this.limitedResults.map((account, index) => {
             const isSelected = selectedId === account.Id;
             const isActive = index === this.activeIndex;
-            let itemClass = 'result-item';
-            if (isSelected) itemClass += ' selected';
-            if (isActive) itemClass += ' active';
+            //Build css for this row
+            let itemClass = 'result-item';//base class
+            if (isSelected) itemClass += ' selected';//highligthning the tick
+            if (isActive) itemClass += ' active';//for focus and styling
+            //build and return a new object
             return {
                 ...account,
-                isSelected,
-                isActive,
-                index,
-                itemClass,
+                isSelected,//boolean for template logic show tick
+                isActive,//boolean or template logic for highlight/focus
+                index,//its postion
+                itemClass,//computed css class
                 optionId: `account-option-${index}`
             };
         });
@@ -58,14 +60,7 @@ export default class AccountSearchCombobox extends LightningElement {
         return this.selectedAccount ? 'search-input compact-left' : 'search-input';
     }
 
-    // ARIA id for listbox and active option
-    get listboxId() {
-        return 'account-combo-listbox';
-    }
-
-    get activeOptionId() {
-        return this.activeIndex >= 0 ? `account-option-${this.activeIndex}` : null;
-    }
+    // Removed ARIA-specific ids and active option logic since keyboard/ARIA support is not needed
 
     // When input changes (typing)
     handleInputChange(event) {
@@ -92,7 +87,7 @@ export default class AccountSearchCombobox extends LightningElement {
         this.isDropdownOpen = false;
         this.searchKey = accountName;
         this.effectiveSearchKey = accountName;
-        this.activeIndex = -1;
+        this.activeIndex = -1; 
         this.dispatchEvent(new CustomEvent('change', {
             detail: { id: accountId, name: accountName },
             bubbles: true,
@@ -109,7 +104,7 @@ export default class AccountSearchCombobox extends LightningElement {
             this.activeIndex = -1;
         }
     }
-
+ 
     // Show all/matching on input box click
     handleInputBoxClick(event) {
         this.isDropdownOpen = true;
@@ -134,51 +129,6 @@ export default class AccountSearchCombobox extends LightningElement {
         event.currentTarget.classList.remove('hover-red');
     }
 
-    // Keyboard navigation and control
-    handleKeydown(event) {
-        if (!this.isDropdownOpen && (event.key === 'ArrowDown' || event.key === 'Enter')) {
-            this.isDropdownOpen = true;
-            this.showOnlyFour = false;
-        }
-
-        const maxIndex = this.computedResults.length - 1;
-        switch (event.key) {
-            case 'ArrowDown':
-                event.preventDefault();
-                if (maxIndex >= 0) {
-                    this.activeIndex = Math.min(maxIndex, this.activeIndex + 1);
-                }
-                break;
-            case 'ArrowUp':
-                event.preventDefault();
-                if (maxIndex >= 0) {
-                    this.activeIndex = Math.max(0, this.activeIndex - 1);
-                }
-                break;
-            case 'Enter':
-                if (this.isDropdownOpen && this.activeIndex >= 0 && this.activeIndex <= maxIndex) {
-                    const item = this.computedResults[this.activeIndex];
-                    if (item) {
-                        this.selectedAccount = { Id: item.Id, Name: item.Name };
-                        this.searchKey = item.Name;
-                        this.effectiveSearchKey = item.Name;
-                        this.isDropdownOpen = false;
-                        this.activeIndex = -1;
-                        this.dispatchEvent(new CustomEvent('change', {
-                            detail: { id: item.Id, name: item.Name },
-                            bubbles: true,
-                            composed: true
-                        }));
-                    }
-                }
-                break;
-            case 'Escape':
-                this.isDropdownOpen = false;
-                this.activeIndex = -1;
-                break;
-            default:
-                break;
-        }
-    }
+    // Removed keyboard navigation handlers
 
 }

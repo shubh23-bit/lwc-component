@@ -18,20 +18,21 @@
 .search-input {
     width: 100%;
     height: 35px;
-    border-radius: 7px;
-    border: 2px solid #5b5e5f;
-    font-size: 1.08rem;
+    border-radius: 5px;
+    border: 2px solid #ab6231;
+    font-size: 1rem;
+    font-family: 'math';
     padding-left: 36px; /* space for left search icon when no selection */
     padding-right: 36px; /* space for right dropdown arrow */
     box-sizing: border-box;
     transition: border 0.18s, box-shadow 0.20s;
-    background: #fff;
+    background: #f1ebeb;
 }
 .search-input.compact-left {
     padding-left: 5px; /* flush to the left when selected */
 }
 .search-input:focus {
-    border-color: #d89e9a !important;
+    border-color: hsl(5, 60%, 70%) !important;
     box-shadow: 0 0 0 2px #ffeaea !important;
     outline: none !important;
 }
@@ -70,17 +71,19 @@
     overflow-y: auto;
     padding: 0;
     list-style: none;
+    
 }
 .result-item {
     padding: 13px 18px 13px 38px;
     cursor: pointer;
-    font-size: 1.04rem;
-    color: #333;
+    font-size: 0.9rem;
+    color: #d19696;
     background: transparent;
     transition: background 0.12s, color 0.13s;
     position: relative;
     display: flex;
     align-items: center;
+    font-family:'math';
 }
 .result-item:hover, .result-item.hover-red {
     background: #fff1f0;
@@ -91,9 +94,7 @@
     color: #f39892;
     font-weight: 400;
 }
-.result-item.active {
-    outline: 2px solid #ffd6d3;
-}
+/* Removed keyboard active outline state */
 .check-icon {
     display: inline-block;
     vertical-align: middle;
